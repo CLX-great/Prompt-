@@ -215,7 +215,9 @@ FastAPI 接口接收请求
 
 ### 事例效果
 <img width="2636" height="1320" alt="image" src="https://github.com/user-attachments/assets/812cc176-187f-4407-892e-eb67c14b25f2" />
-
+```text
+根据图片可以看出，支持多轮对话上下文记忆。并且对于与流量套餐无关的内容，客服没有胡乱回答，而是进行了提醒。
+```
 
 ## 后续优化方向
 
