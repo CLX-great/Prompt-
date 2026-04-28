@@ -183,6 +183,39 @@ print(response.text)
 再根据错误信息排查。
 
 ---
+## 对话记忆（Memory）功能
+
+为了提升系统的智能化程度，本项目引入了基于 **LangChain + SQLite** 的对话记忆机制，使模型能够结合历史对话进行更准确的回答。
+
+### 功能特点
+
+- 支持多轮对话上下文记忆
+- 根据 `userId` 和 `conversationId` 区分不同用户会话
+- 自动存储并读取历史聊天记录
+- 限制历史长度（默认保留最近 10 条）以提高效率
+- 让模型具备“上下文理解能力”
+
+---
+
+### 工作流程
+
+```text
+用户请求
+   ↓
+FastAPI 接口接收请求
+   ↓
+根据 userId + conversationId 获取历史记录（SQLite）
+   ↓
+拼接 Prompt（System + History + 当前问题）
+   ↓
+调用 LLM（Qwen 等）
+   ↓
+返回结果并更新历史记录
+```
+
+### 事例效果
+<img width="2636" height="1320" alt="image" src="https://github.com/user-attachments/assets/812cc176-187f-4407-892e-eb67c14b25f2" />
+
 
 ## 后续优化方向
 
