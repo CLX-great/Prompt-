@@ -303,7 +303,11 @@ Chain4：报告生成（自然语言输出）
 <img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/9411c620-a043-4948-8f01-48d98116567e" />
 <img width="1000" height="406" alt="image" src="https://github.com/user-attachments/assets/824c89b0-8aa0-4db8-b691-84f0a74b7fc5" />
 
+## 最终升级➡️加UI界面（basicWebUI）
 
+### 示例输出
+
+<img width="2606" height="1384" alt="image" src="https://github.com/user-attachments/assets/9304c199-ab69-49e4-a550-fc21e94d2c79" />
 
 
 ## 作者
