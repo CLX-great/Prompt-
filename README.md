@@ -1,4 +1,4 @@
-# 智能流量套餐推荐系统
+# 智能流量套餐推荐系统（basic）
 
 基于 FastAPI + LangChain + One API 构建的模拟通信运营商客服智能问答系统，用于根据用户需求推荐合适的手机流量套餐。
 
@@ -183,7 +183,7 @@ print(response.text)
 再根据错误信息排查。
 
 ---
-## 对话记忆（Memory）功能
+## 升级➡️对话记忆（Memory）功能（withMemoryTest）
 
 为了提升系统的智能化程度，本项目引入了基于 **LangChain + SQLite** 的对话记忆机制，使模型能够结合历史对话进行更准确的回答。
 
@@ -222,7 +222,7 @@ FastAPI 接口接收请求
 
 ---
 
-## 质量检查测试
+## 升级➡️质量检查测试（cot）
 
 本项目调用的是大语言模型接口，因此模型的回答并不是完全固定的规则判断结果。即使输入内容相同，模型在多次运行时也可能返回不同结果。
 ### 事例效果
@@ -234,7 +234,7 @@ FastAPI 接口接收请求
 
 ---
 
-## 质量检查测试2
+## 升级➡️质量检查测试2(selfConsistency)
 
 本项目调用的是大语言模型接口，因此模型的回答并不是完全固定的规则判断结果。即使输入内容相同，模型在多次运行时也可能返回不同结果。
 
@@ -272,6 +272,38 @@ FastAPI 接口接收请求
 结果与预期完全一致
 因此，系统通过多次调用与多数投票机制，最终可以得到更稳定、更接近正确结果的判断。
 ```
+
+## 升级➡️扩展了思维链NEW（sportservice）
+
+本项目实现了一个基于 LangChain 的多阶段推理系统（Multi-Chain Pipeline）。
+
+### 推理流程
+
+```text
+输入：用户能力描述
+        ↓
+Chain1：能力分析（结构化输出）
+        ↓
+Chain2：候选生成（可能运动项目）
+        ↓
+Chain3：能力匹配评估（约束过滤）
+        ↓
+Chain4：报告生成（自然语言输出）
+```
+
+### 核心特点
+
+- 使用多个 Prompt 分阶段推理
+- 每个 Chain 只负责单一任务（职责清晰）
+- 引入剪枝（Pruning）优化推理效率
+- 避免无效结果生成
+
+### 示例输出
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/65a7216b-c594-41ae-8b58-1ee466630ec8" />
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/9411c620-a043-4948-8f01-48d98116567e" />
+<img width="1000" height="406" alt="image" src="https://github.com/user-attachments/assets/824c89b0-8aa0-4db8-b691-84f0a74b7fc5" />
+
+
 
 
 ## 作者
